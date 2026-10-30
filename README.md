@@ -43,12 +43,12 @@ curl "http://localhost:9090/api/v1/divide?a=1&b=0"
 Multi-stage build: `maven:3.9-eclipse-temurin-21` compiles the JAR; the runtime image is `eclipse-temurin:21-jre-alpine`
 running as a non-root user, with the dependency layer cached separately from the source.
 
-Image on Docker Hub: `docker pull <dockerhub-user>/calculator:latest`
+Image on Docker Hub: `docker pull dawoodzargar/calculator:latest`
 
 ## Docker Compose
 
 ```bash
-DOCKER_IMAGE=<dockerhub-user>/calculator docker compose up -d --wait
+DOCKER_IMAGE=dawoodzargar/calculator docker compose up -d --wait
 curl "http://localhost:8088/api/v1/multiply?a=6&b=7"
 docker compose ps
 ```
