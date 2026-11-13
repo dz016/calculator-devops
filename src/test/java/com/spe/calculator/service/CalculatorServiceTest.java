@@ -18,6 +18,7 @@ class CalculatorServiceTest {
         assertEquals(5, service.add(2, 3));
         assertEquals(-1.5, service.add(-3, 1.5));
     }
+ 
 
     @Test
     void subtractReturnsDifference() {
@@ -35,6 +36,13 @@ class CalculatorServiceTest {
     void divideReturnsQuotient() {
         assertEquals(2.5, service.divide(5, 2));
         assertEquals(-4, service.divide(8, -2));
+    }
+
+    @Test
+    void powerReturnsResult() {
+        assertEquals(1024, service.power(2, 10));
+        assertEquals(1, service.power(5, 0));
+        assertEquals(0.25, service.power(2, -2));
     }
 
     @Test

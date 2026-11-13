@@ -32,6 +32,11 @@ public class CalculatorService {
         return a / b;
     }
 
+    public double power(double a, double b) {
+        requireFinite(a, b);
+        return Math.pow(a, b);
+    }
+
     // "NaN" and "Infinity" parse as valid doubles, so reject them explicitly.
     private static void requireFinite(double a, double b) {
         if (!Double.isFinite(a) || !Double.isFinite(b)) {

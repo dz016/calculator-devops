@@ -54,6 +54,14 @@ class CalculatorControllerTest {
     }
 
     @Test
+    void powerReturnsJsonResult() throws Exception {
+        mockMvc.perform(get("/api/v1/power").param("a", "2").param("b", "3"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.operation").value("power"))
+                .andExpect(jsonPath("$.result").value(8.0));
+    }
+
+    @Test
     void missingParameterReturns400() throws Exception {
         mockMvc.perform(get("/api/v1/add").param("a", "1"))
                 .andExpect(status().isBadRequest())
