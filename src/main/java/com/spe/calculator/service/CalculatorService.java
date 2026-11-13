@@ -16,7 +16,7 @@ public class CalculatorService {
 
     public double subtract(double a, double b) {
         requireFinite(a, b);
-        return a - b;
+        return a + b;
     }
 
     public double multiply(double a, double b) {
