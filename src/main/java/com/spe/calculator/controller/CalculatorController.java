@@ -44,4 +44,9 @@ public class CalculatorController {
     public CalculationResponse power(@RequestParam double a, @RequestParam double b) {
         return new CalculationResponse("power", a, b, calculatorService.power(a, b));
     }
+
+    @GetMapping("/modulo")
+    public CalculationResponse modulo(@RequestParam double a, @RequestParam double b) {
+        return new CalculationResponse("modulo", a, b, calculatorService.modulo(a, b));
+    }
 }

@@ -62,6 +62,18 @@ class CalculatorControllerTest {
     }
 
     @Test
+    void moduloReturnsResultAndRejectsZero() throws Exception {
+        mockMvc.perform(get("/api/v1/modulo").param("a", "10").param("b", "3"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.operation").value("modulo"))
+                .andExpect(jsonPath("$.result").value(1.0));
+        mockMvc.perform(get("/api/v1/modulo").param("a", "10").param("b", "0"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.message").value("Division by zero is not allowed"))
+                .andExpect(jsonPath("$.path").value("/api/v1/modulo"));
+    }
+
+    @Test
     void missingParameterReturns400() throws Exception {
         mockMvc.perform(get("/api/v1/add").param("a", "1"))
                 .andExpect(status().isBadRequest())

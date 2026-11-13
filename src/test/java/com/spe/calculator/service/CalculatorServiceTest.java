@@ -46,6 +46,13 @@ class CalculatorServiceTest {
     }
 
     @Test
+    void moduloReturnsRemainder() {
+        assertEquals(1, service.modulo(10, 3));
+        assertEquals(1.5, service.modulo(7.5, 2));
+        assertThrows(DivisionByZeroException.class, () -> service.modulo(5, 0));
+    }
+
+    @Test
     void divideByZeroThrows() {
         assertThrows(DivisionByZeroException.class, () -> service.divide(1, 0));
     }
